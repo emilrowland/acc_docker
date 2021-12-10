@@ -90,15 +90,6 @@ RUN service postgresql start &&\
 # --------------------------------------
 RUN /apache.sh 
 
-# Snowflake FDA
-# -----------------------------------------------------
-RUN /usr/local/neolane/nl6/bin/fda-setup-scripts/snowflake_odbc-setup.sh
-
-# Google Big Query FDA 
-# -----------------------------------------------------
-RUN /usr/local/neolane/nl6/bin/fda-setup-scripts/bigquery_odbc-setup.sh
-#RUN /usr/local/neolane/nl6/bin/fda-setup-scripts/bigquery_sdk-setup.sh
-
 # DB Analyser plugin (optional)
 # -----------------------------
 COPY /sources/dbanalyser/ /usr/local/neolane/nl6/web/dbanalyser
