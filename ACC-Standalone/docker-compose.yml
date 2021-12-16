@@ -1,0 +1,21 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  mitmweb:
+    image: mitmproxy/mitmproxy
+    tty: true
+    ports:
+      - 8081:8081
+    command: mitmweb --web-host 0.0.0.0
+    volumes:
+      - ca-volume:/ca
+  acc:
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - ca-volume:/etc/ssl/certs
+    depends_on:
+      - mitmweb
+
+volumes:
+     ca-volume: 

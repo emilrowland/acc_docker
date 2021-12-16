@@ -41,6 +41,9 @@ sed -i 's|spamCheck command=""|spamCheck command="perl /usr/local/neolane/nl6/bi
 sed -i 's|allowEmptyPassword="false"|allowEmptyPassword="true"|g' /usr/local/neolane/nl6/conf/serverConf.xml
 sed -i 's/<dnsConfig localDomain="''"/<dnsConfig localDomain="'adobe.com'"'/g /usr/local/neolane/nl6/conf/serverConf.xml
 sed -i 's/xMailer="nlserver, Build $(PRODUCT_VERSION)"/xMailer="Adobe Campaign Infinity"/g' /usr/local/neolane/nl6/conf/serverConf.xml
+sed -i 's/<proxyConfig enabled="false"/<proxyConfig enabled="true"/g' /usr/local/neolane/nl6/conf/serverConf.xml
+sed -i 's/<proxyHTTP address="" login="" password="" port=""\/>/<proxyHTTP address="mitmweb" login="" password="" port="8080"\/>/g' /usr/local/neolane/nl6/conf/serverConf.xml
+sed -i 's/<proxyHTTPS address="" login="" password="" port=""\/>/<proxyHTTPS address="mitmweb" login="" password="" port="8080"\/>/g' /usr/local/neolane/nl6/conf/serverConf.xml
 
 # Configure config-default.xml
 # ----------------------------
